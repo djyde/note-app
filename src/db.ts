@@ -6,6 +6,15 @@ class DB extends Dexie {
 
   constructor() {
     super('note')
+
+    this.version(2).stores({
+      notes: '++id, title, content, createdAt, updatedAt'
+    }).upgrade(tx => {
+      return tx.table('notes').toCollection().modify(note => {
+        note.updatedAt = note.createdAt
+      })
+    })
+
     this.version(1).stores({
       notes: '++id, title, content, createdAt'
     })
@@ -17,8 +26,9 @@ class DB extends Dexie {
 export default new DB()
 
 export interface Note {
-  id?: string
+  id?: number
   title: string
   content: string
   createdAt: string
+  updatedAt: string
 }
