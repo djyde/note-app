@@ -53,6 +53,7 @@ export default function Editor ({
           ...body,
           updatedAt: now
         })
+        alert('已保存')
       } else {
         const now = `${Date.now()}`
         await db.notes.put({
