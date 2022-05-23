@@ -10,7 +10,7 @@
     "@types/react-dom": "^16.9.5",
     "autoprefixer": "^9.7.4",
     "dayjs": "^1.8.23",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "history": "^4.10.1",
     "parcel-bundler": "^1.12.4",
     "path-to-regexp": "^6.1.0",
